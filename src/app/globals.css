@@ -1,0 +1,616 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Professional ERP Color Palette */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    /* Cool Blues - Primary */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* Soft Grays - Neutral */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    /* Green Accents - Success */
+    --accent: 142.1 76.2% 36.3%;
+    --accent-foreground: 355.7 100% 97.3%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+    
+    /* Chart Colors */
+    --chart-1: 221.2 83.2% 53.3%; /* Blue */
+    --chart-2: 142.1 76.2% 36.3%; /* Green */
+    --chart-3: 45.4 93.4% 47.5%;  /* Yellow */
+    --chart-4: 271.5 81.3% 55.9%; /* Purple */
+    --chart-5: 12.2 88.5% 59.4%;  /* Red */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 142.1 70.6% 45.3%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-medium;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+  
+  /* Professional scroll bars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+  }
+}
+
+@layer components {
+  /* Login Page Components */
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eff6ff 0%, #f1f5f9 100%);
+    font-family: 'Inter', sans-serif;
+    padding: 2rem;
+  }
+
+  .login-card {
+    max-width: 28rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+  }
+
+  .login-header {
+    text-align: center;
+    padding: 2rem 2rem 1rem 2rem;
+  }
+
+  .login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-logo-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: #2563eb;
+    border-radius: 1rem;
+    position: relative;
+  }
+
+  .login-logo-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+  }
+
+  .login-logo h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .login-subtitle {
+    color: #64748b;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .login-form-container {
+    padding: 0 2rem 2rem 2rem;
+  }
+
+  .login-form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .login-form-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .login-form-header p {
+    color: #64748b;
+    margin: 0;
+  }
+
+  .login-error {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 0.5rem;
+  }
+
+  .login-error p {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .login-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-field label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+  }
+
+  .login-field input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+    box-sizing: border-box;
+  }
+
+  .login-field input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .login-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .login-btn-primary {
+    background-color: #2563eb;
+    color: white;
+  }
+
+  .login-btn-primary:hover:not(:disabled) {
+    background-color: #1d4ed8;
+  }
+
+  .login-btn-demo {
+    background-color: #059669;
+    color: white;
+  }
+
+  .login-btn-demo:hover:not(:disabled) {
+    background-color: #047857;
+  }
+
+  .login-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 1rem;
+  }
+
+  /* ERP Layout Components */
+  .erp-container {
+    min-height: 100vh;
+    background-color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .erp-header {
+    background-color: white;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .erp-header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+  }
+
+  .erp-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .erp-logo-icon {
+    width: 2rem;
+    height: 2rem;
+    background-color: #2563eb;
+    border-radius: 0.5rem;
+    position: relative;
+  }
+
+  .erp-logo-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1rem;
+    height: 1rem;
+    background-color: white;
+    border-radius: 0.25rem;
+  }
+
+  .erp-logo h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+  }
+
+  .erp-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .erp-user-info span {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  .erp-avatar {
+    width: 2rem;
+    height: 2rem;
+    background-color: #d1d5db;
+    border-radius: 50%;
+  }
+
+  .erp-layout {
+    display: flex;
+  }
+
+  .erp-sidebar {
+    width: 16rem;
+    background-color: white;
+    border-right: 1px solid #e2e8f0;
+    min-height: calc(100vh - 4rem);
+    box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .erp-nav-items {
+    padding: 1rem;
+  }
+
+  .erp-nav-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #374151;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .erp-nav-item:hover {
+    background-color: #f9fafb;
+  }
+
+  .erp-nav-item.active {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+  }
+
+  .erp-nav-icon {
+    margin-right: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .erp-main {
+    flex: 1;
+    padding: 1.5rem;
+  }
+
+  .erp-page-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .erp-page-header h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .erp-page-header p {
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .erp-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .erp-stat-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .erp-stat-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .erp-stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .erp-stat-value {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+  }
+
+  .erp-stat-change {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .erp-stat-change.positive {
+    color: #059669;
+  }
+
+  .erp-stat-change.negative {
+    color: #dc2626;
+  }
+
+  .erp-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .erp-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .erp-card-header {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1.5rem;
+  }
+
+  .erp-card-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .erp-card-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
+  .erp-invoice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .erp-invoice-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .erp-invoice-id {
+    font-weight: 500;
+    color: #1f2937;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .erp-invoice-customer {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .erp-invoice-details {
+    text-align: right;
+  }
+
+  .erp-invoice-amount {
+    font-weight: 500;
+    color: #1f2937;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .erp-status {
+    display: inline-flex;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 9999px;
+  }
+
+  .erp-status.paid {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+
+  .erp-status.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+
+  .erp-status.overdue {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+
+  .erp-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .erp-action-btn {
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    background-color: white;
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+
+  .erp-action-btn:hover {
+    background-color: #f9fafb;
+  }
+
+  .erp-action-title {
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+  }
+
+  .erp-action-desc {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .erp-layout {
+      flex-direction: column;
+    }
+
+    .erp-sidebar {
+      width: 100%;
+      min-height: auto;
+    }
+
+    .erp-nav-items {
+      display: flex;
+      overflow-x: auto;
+      padding: 0.5rem;
+    }
+
+    .erp-nav-item {
+      white-space: nowrap;
+      margin-right: 0.5rem;
+      margin-bottom: 0;
+    }
+
+    .erp-stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .erp-content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
